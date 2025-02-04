@@ -15,7 +15,6 @@ function Main() {
   } = useContext(Context);
   const [isListening, setIsListening] = useState(false);
 
-  // Initialize SpeechRecognition using useMemo
   const recognition = useMemo(() => {
     const SpeechRecognition =
       window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -42,18 +41,17 @@ function Main() {
     if (recognition) {
       recognition.onresult = (event) => {
         const command = event.results[0][0].transcript;
-        setInput(command); // Set the recognized text as input
+        setInput(command); 
         console.log("Recognized Command:", command);
       };
 
       recognition.onerror = (event) => {
         console.error("Speech Recognition Error:", event.error);
-        setIsListening(false); // Ensure the mic state is updated
+        setIsListening(false); 
       };
 
       recognition.onend = () => {
-        // Handle the end of speech recognition
-        setIsListening(false); // Re-enable the microphone button
+        setIsListening(false); 
       };
     }
     return () => {

@@ -31,14 +31,10 @@ function ShopCategory(props) {
       newProducts = new_productmen; // No need to filter, as all items are for men
     } else if (props.category === "women") {
       newProducts = new_productwomen; // No need to filter, as all items are for women
-    } else if (props.category === "kids") {
+    } else if (props.category === "kid") {
       newProducts = new_productkids; // No need to filter, as all items are for kids
       console.log("Kids Products:", newProducts); // Debugging: Log the kids products
     }
-
-    // Debugging: Log the new products being appended
-    console.log("New Products to Append:", newProducts);
-
     // Append new products to the current visibleProducts
     setVisibleProducts((prevProducts) => {
       const updatedProducts = [...prevProducts, ...newProducts];
@@ -60,7 +56,15 @@ function ShopCategory(props) {
       </div>
       <div className="shopcategory-products">
         {visibleProducts.map((item, i) => (
-          <Item key={i} id={item.id} name={item.name} image={item.image} new_price={item.new_price} old_price={item.old_price} />
+          <Item
+            key={i}
+            id={item.id}
+            name={item.name}
+            image={item.image}
+            new_price={item.new_price}
+            old_price={item.old_price}
+            visibleProducts={visibleProducts} // Pass visibleProducts to Item
+          />
         ))}
       </div>
       <div className="shopcategory-loadmore" onClick={loadmore}>

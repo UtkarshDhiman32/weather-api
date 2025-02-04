@@ -14,7 +14,7 @@ let new_productkids = [
   {
     id: 1,
     name: "Kids wear",
-    category: "kids",
+    category: "kid",
     image: nk1,
     new_price: 50.0,
     old_price: 80.5,
@@ -22,7 +22,7 @@ let new_productkids = [
   {
     id: 2,
     name: "Kids wear",
-    category: "kids",
+    category: "kid",
     image: nk2,
     new_price: 50.0,
     old_price: 80.5,
@@ -30,7 +30,7 @@ let new_productkids = [
   {
     id: 3,
     name: "Kids wear",
-    category: "kids",
+    category: "kid",
     image: nk3,
     new_price: 50.0,
     old_price: 80.5,
@@ -38,7 +38,7 @@ let new_productkids = [
   {
     id: 4,
     name: "Kids wear",
-    category: "kids",
+    category: "kid",
     image: nk4,
     new_price: 50.0,
     old_price: 80.5,
@@ -46,7 +46,7 @@ let new_productkids = [
   {
     id: 5,
     name: "Kids wear",
-    category: "kids",
+    category: "kid",
     image: nk5,
     new_price: 50.0,
     old_price: 80.5,
@@ -54,7 +54,7 @@ let new_productkids = [
   {
     id: 6,
     name: "Kids wear",
-    category: "kids",
+    category: "kid",
     image: nk6,
     new_price: 50.0,
     old_price: 80.5,
@@ -62,7 +62,7 @@ let new_productkids = [
   {
     id: 7,
     name: "Kids wear",
-    category: "kids",
+    category: "kid",
     image: nk7,
     new_price: 50.0,
     old_price: 80.5,
@@ -70,7 +70,7 @@ let new_productkids = [
   {
     id: 8,
     name: "Kids wear",
-    category: "kids",
+    category: "kid",
     image: nk8,
     new_price: 50.0,
     old_price: 80.5,
@@ -78,7 +78,7 @@ let new_productkids = [
   {
     id: 9,
     name: "Kids wear",
-    category: "kids",
+    category: "kid",
     image: nk9,
     new_price: 50.0,
     old_price: 80.5,
@@ -86,7 +86,7 @@ let new_productkids = [
   {
     id: 10,
     name: "Kids wear",
-    category: "kids",
+    category: "kid",
     image: nk10,
     new_price: 50.0,
     old_price: 80.5,
@@ -94,7 +94,7 @@ let new_productkids = [
   {
     id: 11,
     name: "Kids wear",
-    category: "kids",
+    category: "kid",
     image: nk11,
     new_price: 50.0,
     old_price: 80.5,
@@ -102,7 +102,7 @@ let new_productkids = [
   {
     id: 12,
     name: "Kids wear",
-    category: "kids",
+    category: "kid",
     image: nk12,
     new_price: 50.0,
     old_price: 80.5,

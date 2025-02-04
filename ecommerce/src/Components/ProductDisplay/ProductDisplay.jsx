@@ -5,11 +5,13 @@ import star_dull_icon from "../Assets/star_dull_icon.png";
 import plus_icon from "../Assets/plus_icon.png";
 import minus_icon from "../Assets/minus-sign.png";
 import "./ProductDisplay.css";
-
+import new_productkids from "../Assets/new_productkids";
+import new_productmen from "../Assets/new_productmen";
+import new_productwomen from "../Assets/new_productwomen";
 function ProductDisplay(props) {
   const { product } = props;
   const { addToCart, getTotalCartItems,removeFromCart } = useContext(ShopContext);
-
+const selectedProduct =[...new_productmen,...new_productwomen,...new_productkids].filter(item=>item.id===product.id)
   return (
     <div className="productdisplay">
       <div className="productdisplay-left">
