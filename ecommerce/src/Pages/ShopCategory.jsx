@@ -1,73 +1,75 @@
-import './CSS/ShopCategory.css';
-import { useContext, useState, useEffect } from 'react';
-import { ShopContext } from '../Context/ShopContext';
-import dropdown_icon from '../Components/Assets/dropdown_icon.png';
-import Item from '../Components/Item/Item';
-import new_productmen from '../Components/Assets/new_productmen';
-import new_productwomen from '../Components/Assets/new_productwomen';
-import new_productkids from '../Components/Assets/new_productkids';
+import "./CSS/ShopCategory.css";
+import { useContext, useState, useEffect } from "react";
+import { ShopContext } from "../Context/ShopContext";
+import dropdown_icon from "../Components/Assets/dropdown_icon.png";
+import Item from "../Components/Item/Item";
+import new_productmen from "../Components/Assets/new_productmen";
+import new_productwomen from "../Components/Assets/new_productwomen";
+import new_productkids from "../Components/Assets/new_productkids";
 
-function ShopCategory(props) {
+function ShopCategory({ category, banner }) {
   const { all_product } = useContext(ShopContext);
   const [visibleProducts, setVisibleProducts] = useState([]);
+  const [sortOrder, setSortOrder] = useState(null);
 
-  // Debugging: Log the props.category
-  console.log("Props Category:", props.category);
-
-  // Update visibleProducts when category changes
   useEffect(() => {
-    const filteredProducts = all_product.filter(item => item.category === props.category);
+    const filteredProducts = all_product.filter(
+      (item) => item.category === category
+    );
     setVisibleProducts(filteredProducts);
-  }, [props.category, all_product]);
+  }, [category, all_product]);
 
-  const loadmore = () => {
+  const loadMore = () => {
     let newProducts = [];
+    if (category === "men") newProducts = new_productmen;
+    else if (category === "women") newProducts = new_productwomen;
+    else if (category === "kid") newProducts = new_productkids;
 
-    // Debugging: Log the current category
-    console.log("Current Category:", props.category);
+    setVisibleProducts((prevProducts) => [...prevProducts, ...newProducts]);
+  };
 
-    // Check category and append correct products
-    if (props.category === "men") {
-      newProducts = new_productmen; // No need to filter, as all items are for men
-    } else if (props.category === "women") {
-      newProducts = new_productwomen; // No need to filter, as all items are for women
-    } else if (props.category === "kid") {
-      newProducts = new_productkids; // No need to filter, as all items are for kids
-      console.log("Kids Products:", newProducts); // Debugging: Log the kids products
-    }
-    // Append new products to the current visibleProducts
-    setVisibleProducts((prevProducts) => {
-      const updatedProducts = [...prevProducts, ...newProducts];
-      console.log("Updated Visible Products:", updatedProducts);
-      return updatedProducts;
-    });
+  const handleSort = (order) => {
+    const sortedProducts = [...visibleProducts].sort((a, b) =>
+      order === "low-to-high"
+        ? a.new_price - b.new_price
+        : b.new_price - a.new_price
+    );
+    setVisibleProducts(sortedProducts);
+    setSortOrder(order);
   };
 
   return (
     <div className="shop-category">
-      <img className="shopcategory-banner" src={props.banner} alt="" />
+      <img className="shopcategory-banner" src={banner} alt="Category Banner" />
+
       <div className="shopcategory-indexSort">
         <p>
-          <span>Showing {visibleProducts.length}</span> Out of 36 products
+          <span>Showing {visibleProducts.length}</span> out of 36 products
         </p>
         <div className="shopcategory-sort">
-          Sort by <img src={dropdown_icon} alt="" />
+          <span>Sort by</span>
+          <img src={dropdown_icon} alt="Dropdown Icon" />
         </div>
       </div>
+      <div className="sort-list">
+        <ul>
+        <button className='lowtohigh'  onClick={() => handleSort("low-to-high")} >Low to High</button>
+       
+          <br />
+                      <button className='hightolow' onClick={() => handleSort("high-to-low")}>High to Low</button> 
+
+        </ul>
+        {/* <button className='lowtohigh'  onClick={() => handleSort("low-to-high")} >Low to High</button>
+            <button className='hightolow' onClick={() => handleSort("high-to-low")}>High to Low</button> */}
+      </div>
+
       <div className="shopcategory-products">
         {visibleProducts.map((item, i) => (
-          <Item
-            key={i}
-            id={item.id}
-            name={item.name}
-            image={item.image}
-            new_price={item.new_price}
-            old_price={item.old_price}
-            visibleProducts={visibleProducts} // Pass visibleProducts to Item
-          />
+          <Item key={i} {...item} />
         ))}
       </div>
-      <div className="shopcategory-loadmore" onClick={loadmore}>
+
+      <div className="shopcategory-loadmore" onClick={loadMore}>
         Explore More
       </div>
     </div>
