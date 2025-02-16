@@ -6,6 +6,7 @@ import Item from "../Components/Item/Item";
 import new_productmen from "../Components/Assets/new_productmen";
 import new_productwomen from "../Components/Assets/new_productwomen";
 import new_productkids from "../Components/Assets/new_productkids";
+import { Link } from "react-router-dom";
 
 function ShopCategory({ category, banner }) {
   const { all_product } = useContext(ShopContext);
