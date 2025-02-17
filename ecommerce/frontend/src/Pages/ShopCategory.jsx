@@ -47,22 +47,23 @@ function ShopCategory({ category, banner }) {
         <p>
           <span>Showing {visibleProducts.length}</span> out of 36 products
         </p>
-        <div className="shopcategory-sort">
-          <span>Sort by</span>
-          <img src={dropdown_icon} alt="Dropdown Icon" />
-        </div>
-      </div>
-      <div className="sort-list">
-        <ul>
-        <button className='lowtohigh'  onClick={() => handleSort("low-to-high")} >Low to High</button>
-       
-          <br />
-                      <button className='hightolow' onClick={() => handleSort("high-to-low")}>High to Low</button> 
 
-        </ul>
-        {/* <button className='lowtohigh'  onClick={() => handleSort("low-to-high")} >Low to High</button>
-            <button className='hightolow' onClick={() => handleSort("high-to-low")}>High to Low</button> */}
+        <div className="dropdown ml-2" >
+  <button className="btn btn-secondary  " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+<span>Sort by</span> 
+<img src={dropdown_icon} alt="Dropdown Icon" />
+
+ </button>
+  <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li><a className="dropdown-item" href="#" onClick={() => handleSort("low-to-high")} >Prices: Low to high</a></li>
+    <li><a className="dropdown-item" href="#" onClick={() => handleSort("high-to-low")} >Prices: High to low</a></li>
+  </ul>
+</div>
+
+
+        
       </div>
+      
 
       <div className="shopcategory-products">
         {visibleProducts.map((item, i) => (
