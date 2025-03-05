@@ -3,9 +3,9 @@ import { useContext, useState, useEffect } from "react";
 import { ShopContext } from "../Context/ShopContext";
 import dropdown_icon from "../Components/Assets/dropdown_icon.png";
 import Item from "../Components/Item/Item";
-import new_productmen from "../Components/Assets/new_productmen";
-import new_productwomen from "../Components/Assets/new_productwomen";
-import new_productkids from "../Components/Assets/new_productkids";
+// import new_productmen from "../Components/Assets/new_productmen";
+// import new_productwomen from "../Components/Assets/new_productwomen";
+// import new_productkids from "../Components/Assets/new_productkids";
 import { Link } from "react-router-dom";
 
 function ShopCategory({ category, banner }) {
@@ -24,7 +24,7 @@ function ShopCategory({ category, banner }) {
     let newProducts = [];
     if (category === "men") newProducts = new_productmen;
     else if (category === "women") newProducts = new_productwomen;
-    else if (category === "kid") newProducts = new_productkids;
+    else if (category === "kids") newProducts = new_productkids;
 
     setVisibleProducts((prevProducts) => [...prevProducts, ...newProducts]);
   };
