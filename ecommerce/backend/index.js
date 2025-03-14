@@ -260,7 +260,7 @@ app.post('/getcart',fetchUser,async(req,res)=>{
   
 })
 
-app.listen(port, (error) => {
+app.listen(PORT, (error) => {
   if (!error) {
     console.log(`Server is running on port ${port}`);
   } else {
