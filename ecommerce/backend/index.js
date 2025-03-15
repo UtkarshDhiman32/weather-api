@@ -13,8 +13,10 @@ app.use(cors());
 
 //database connection
 mongoose.connect(
-  "mongodb+srv://utkarshdhiman:utkarsh123@cluster0.ldsba.mongodb.net/E-commerce"
+  "mongodb+srv://utkarshdhiman:utkarsh123@cluster0.ldsba.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 );
+
+
 
 //api connection
 app.get("/", (req, res) => {
